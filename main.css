@@ -41,7 +41,11 @@ h2 {
     background-color: #90ee90;
 }
 
-.begin-button {
+.highlight-skyblue {
+    background-color: skyblue;
+}
+
+.complete-button {
     padding: 5px 10px;
     background-color: green;
     color: white;
