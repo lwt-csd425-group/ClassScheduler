@@ -1,16 +1,23 @@
-// to-do: create sets of classes of which only one is required for prereqs
 class Course {
     constructor(id, name, prereqs = [], completed = false) {
-        this.id = id
-        this.name = name
-        this.prereqs = prereqs
-        this.completed = completed
+        this.id = id;
+        this.name = name;
+        this.prereqs = prereqs;
+        this.completed = completed;
     }
 
     get canTake() {
-        for (course of this.prereqs) {
-            if (!course.completed) return false;
-        }
-        return true;
+        return this.prereqs.every(prereq => prereq.completed);
     }
 }
+
+var courses = {};
+
+function createCourse(id, name, prereqs) {
+    return (courses[id] = new Course(id, name, prereqs));
+}
+
+/*function getCourse(id) {
+    return courses[id] || null;
+}*/
+
