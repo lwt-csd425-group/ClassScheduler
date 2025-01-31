@@ -7,9 +7,20 @@ class Course {
     }
 
     get canTake() {
-        return this.prereqs.every(prereq => prereq.completed);
+        return this.prereqs.every(prereq => {
+            // arrays nested inside prereq array will be considered completed
+            // if at least one class inside is complete (essentially an OR rule)
+            if (Array.isArray(prereq)) {
+                return prereq.some((prereqOption) => prereqOption?.completed);
+            }
+            // courses inside prereqs array must be completed
+            else {
+                return prereq.completed;
+            }
+        }
+        );
     }
-}
+};
 
 var courses = {};
 

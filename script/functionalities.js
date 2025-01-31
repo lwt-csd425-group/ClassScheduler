@@ -15,14 +15,16 @@ function initializeCSDAASTCourses() {
 	var phys114 = createCourse("PHYS114", "General Physics I w/Lab");
 	var soc101 = createCourse("SOC101", "Introduction to Sociology");
 
-	var csd230 = createCourse("CSD230", "Programming For Mobile Devices", [cs143]);
+	var csd228 = createCourse("CSD228", "Programming with C#", [cs141]);
+
+	var csd230 = createCourse("CSD230", "Programming For Mobile Devices", [[cs143, csd228]]);
 	var csd275 = createCourse("CSD275", "PHP Scripting", [csd110, csd112]);
 	var csd233 = createCourse("CSD233", "C++ Programming", [cs143]);
 
-	var csd228 = createCourse("CSD228", "Programming with C#", [cs141]);
+	
 	var csd298 = createCourse("CSD298", "Technical Interview/Job Search", [cs143]);
 	var dsgn290 = createCourse("DSGN290", "Portfolio/Job Search", [art102]);
-	var csd297 = createCourse("CSD297", "IT Project", [csd112, csd122, csd138, cs141, csd228, csd268]);
+	var csd297 = createCourse("CSD297", "IT Project", [csd112, csd122, csd138, cs141, [csd228, csd268]]);
 }
 
 courseElementMap = {};
